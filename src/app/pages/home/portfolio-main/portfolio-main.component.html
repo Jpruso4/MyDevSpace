@@ -1,0 +1,445 @@
+<div class="relative flex w-full flex-col font-display text-text-primary-light dark:text-text-primary-dark transition-colors duration-300">
+  
+  <!-- ============================================ -->
+  <!-- HEADER -->
+  <!-- ============================================ -->
+  <header class="fixed top-0 left-0 right-0 w-full min-h-16 z-50 flex items-center justify-center border-b border-solid border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/95 backdrop-blur-md shadow-sm will-change-transform transform-gpu">
+    <nav class="flex w-full max-w-5xl items-center justify-between whitespace-nowrap px-4 py-3 md:px-10">
+      
+      <!-- Logo -->
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-xl text-primary">person</span>
+        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Juan Gutierrez</h2>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="hidden items-center gap-9 md:flex">
+        <a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary" 
+           href="#experience">
+          {{ "nav.experience" | translate }}
+        </a>
+        <a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary" 
+           href="#skills">
+          {{ "nav.skills" | translate }}
+        </a>
+        <a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary" 
+           href="#projects">
+          {{ "nav.projects" | translate }}
+        </a>
+        <a class="text-sm font-medium leading-normal text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary" 
+           href="#contact">
+          {{ "nav.contact" | translate }}
+        </a>
+      </div>
+
+      <!-- Right Side Actions -->
+      <div class="flex items-center gap-4">
+        
+        <!-- Language Selector -->
+        <div class="relative language-selector-container">
+          <button class="flex items-center gap-2 text-sm font-medium text-text-primary-light dark:text-text-primary-dark hover:text-primary"
+                  type="button"
+                  (click)="toggleLanguageMenu(); $event.stopPropagation()">
+            <span class="material-symbols-outlined text-xl !font-thin">language</span>
+            <span>{{ currentLang.toUpperCase() }}</span>
+            <span class="material-symbols-outlined text-base transition-transform"
+                  [class.rotate-180]="isLanguageMenuOpen">
+              expand_more
+            </span>
+          </button>
+
+          <!-- Language Dropdown Menu -->
+          <div *ngIf="isLanguageMenuOpen"
+               class="absolute right-0 top-full mt-1 w-32 origin-top-right rounded-md bg-card-light dark:bg-card-dark shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+               (click)="$event.stopPropagation()">
+            <div class="py-1" role="menu" aria-orientation="vertical">
+              <a class="block px-4 py-2 text-sm text-text-primary-light dark:text-text-primary-dark hover:bg-background-light dark:hover:bg-background-dark"
+                 href="#"
+                 role="menuitem"
+                 (click)="setLanguage('es'); $event.preventDefault()">
+                {{ "language.es" | translate }}
+              </a>
+              <a class="block px-4 py-2 text-sm text-text-primary-light dark:text-text-primary-dark hover:bg-background-light dark:hover:bg-background-dark"
+                 href="#"
+                 role="menuitem"
+                 (click)="setLanguage('en'); $event.preventDefault()">
+                {{ "language.en" | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-xl !font-thin text-primary">light_mode</span>
+          <label class="theme-switch" for="theme-toggle">
+            <input id="theme-toggle"
+                   type="checkbox"
+                   [checked]="isDarkMode"
+                   (change)="toggleDarkMode()" />
+            <div class="theme-switch-slider" [class.checked]="isDarkMode"></div>
+          </label>
+          <span class="material-symbols-outlined text-xl !font-thin text-text-secondary-light dark:text-text-secondary-dark">
+            dark_mode
+          </span>
+        </div>
+
+        <!-- Download CV Button -->
+        <button class="hidden min-w-[84px] h-10 px-4 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105 sm:flex">
+          <span class="truncate">{{ "buttons.downloadCV" | translate }}</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button class="flex items-center justify-center md:hidden mobile-menu-container"
+                type="button"
+                (click)="toggleMobileMenu(); $event.stopPropagation()">
+          <span class="material-symbols-outlined text-2xl">{{ isMobileMenuOpen ? 'close' : 'menu' }}</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMobileMenuOpen" 
+         class="absolute top-full left-0 right-0 w-full bg-background-light dark:bg-background-dark border-b border-solid border-border-light dark:border-border-dark shadow-lg mobile-menu-container"
+         (click)="$event.stopPropagation()">
+      <nav class="flex flex-col px-4 py-4 gap-4">
+        <a class="text-base font-medium text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary py-2" 
+           href="#experience"
+           (click)="closeMobileMenu()">
+          {{ "nav.experience" | translate }}
+        </a>
+        <a class="text-base font-medium text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary py-2" 
+           href="#skills"
+           (click)="closeMobileMenu()">
+          {{ "nav.skills" | translate }}
+        </a>
+        <a class="text-base font-medium text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary py-2" 
+           href="#projects"
+           (click)="closeMobileMenu()">
+          {{ "nav.projects" | translate }}
+        </a>
+        <a class="text-base font-medium text-text-primary-light dark:text-text-primary-dark transition-colors hover:text-primary py-2" 
+           href="#contact"
+           (click)="closeMobileMenu()">
+          {{ "nav.contact" | translate }}
+        </a>
+        <button class="flex min-w-[84px] h-10 px-4 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105 mt-2"
+                (click)="closeMobileMenu()">
+          <span class="truncate">{{ "buttons.downloadCV" | translate }}</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================ -->
+  <!-- MAIN CONTENT -->
+  <!-- ============================================ -->
+  <main class="flex flex-1 justify-center pt-20 py-5">
+    <div class="flex w-full max-w-5xl flex-col gap-10 px-4 md:px-10 md:gap-16">
+      
+      <!-- ============================================ -->
+      <!-- HERO SECTION -->
+      <!-- ============================================ -->
+      <section id="hero" class="pt-10">
+        <div class="flex flex-col gap-6 md:gap-8 lg:flex-row lg:items-center">
+          
+          <!-- Hero Content -->
+          <div class="flex flex-col gap-6 md:min-w-[400px] md:gap-8 lg:justify-center">
+            <div class="flex flex-col gap-2 text-left">
+              <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl md:font-black md:leading-tight md:tracking-[-0.033em]">
+                Juan P. Gutierrez Diaz
+              </h1>
+              <div class="text-sm font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark md:text-base md:font-normal md:leading-normal">
+                {{ "hero.subtitle" | translate }}
+              </div>
+            </div>
+
+            <!-- Hero Actions -->
+            <div class="flex flex-wrap gap-3">
+              <a class="flex min-w-[84px] max-w-[480px] h-10 px-4 md:h-12 md:px-5 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] md:text-base md:font-bold md:leading-normal md:tracking-[0.015em] transition-transform hover:scale-105"
+                 href="#projects">
+                <span class="truncate">{{ "hero.viewProjects" | translate }}</span>
+              </a>
+              <a class="flex min-w-[84px] max-w-[480px] h-10 px-4 md:h-12 md:px-5 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-card-light dark:bg-card-dark text-text-primary-light dark:text-text-primary-dark text-sm font-bold leading-normal tracking-[0.015em] md:text-base md:font-bold md:leading-normal md:tracking-[0.015em] transition-transform hover:scale-105 border border-border-light dark:border-border-dark"
+                 href="#contact">
+                <span class="truncate">{{ "hero.contactMe" | translate }}</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="w-full aspect-square bg-no-repeat bg-cover rounded-lg md:h-[400px] md:min-w-[300px] lg:w-full lg:max-w-[350px]"
+               data-alt="Professional headshot of Juan Pablo Gutierrez Diaz"
+               style="background-image: url('assets/images/PHOTO-2025-02-12-19-14-08.jpg'); background-position: center 20%; background-size: 180%;">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- EXPERIENCE SECTION CON LOGOS -->
+      <!-- ============================================ -->
+      <section id="experience">
+        <div class="flex flex-col lg:flex-row items-start gap-8 px-4 pt-5">
+          <!-- Título y Timeline -->
+          <div class="flex-1">
+            <h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3">
+              {{ "experience.title" | translate }}
+            </h2>
+
+            <div class="grid grid-cols-[40px_1fr] gap-x-2">
+              <ng-container *ngFor="let experience of experienceItems; let i = index; let last = last">
+                <!-- Icon and Timeline -->
+                <div
+                  class="flex flex-col items-center gap-1"
+                  [class.pt-3]="i === 0"
+                  [class.pb-3]="last"
+                >
+                  <!-- Top line (except first item) -->
+                  <div
+                    *ngIf="i > 0"
+                    class="w-[1.5px] h-2 bg-border-light dark:bg-border-dark"
+                  ></div>
+                  
+                  <!-- Icon -->
+                  <div class="text-primary">
+                    <span class="material-symbols-outlined">{{ experience.icon }}</span>
+                  </div>
+                  
+                  <!-- Bottom line (except last item) -->
+                  <div
+                    *ngIf="!last"
+                    class="w-[1.5px] h-2 grow bg-border-light dark:bg-border-dark"
+                  ></div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex flex-1 flex-col py-3">
+                  <p class="text-base font-medium leading-normal">
+                    {{ experience.position }}
+                  </p>
+                  <p class="text-base font-normal leading-normal text-text-secondary-light dark:text-text-secondary-dark">
+                    {{ experience.company }}
+                  </p>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Logos de tecnologías como burbujas en grid 2 columnas (solo desktop) -->
+          <div class="hidden lg:block lg:w-[280px] flex-shrink-0">
+            <div class="sticky top-[120px] h-fit">
+              <h3 class="text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 mb-0">{{ "experience.techStack" | translate }}</h3>
+              <div class="rounded-2xl border border-border-light dark:border-border-dark bg-white dark:bg-card-dark px-6 py-5 shadow-sm w-[280px]">
+                <div class="grid grid-cols-2 gap-x-5 gap-y-2 justify-items-center">
+                  <div 
+                    *ngFor="let tech of technologies; let i = index" 
+                    class="flex items-center justify-center animate-bubble-float"
+                    [style.animation-delay]="tech.delay + 's'"
+                    [style.z-index]="technologies.length - i">
+                    <div class="w-20 h-20 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                      <img 
+                        [src]="tech.iconUrl" 
+                        [alt]="tech.name"
+                        [title]="tech.name"
+                        class="w-12 h-12 object-contain">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logos en móvil: rectángulo con grid de múltiples columnas (2 filas) -->
+        <div class="mt-4 px-4 lg:hidden">
+          <h3 class="text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 mb-0">{{ "experience.techStack" | translate }}</h3>
+          <div class="rounded-2xl border border-border-light dark:border-border-dark bg-white dark:bg-card-dark px-4 py-3 shadow-sm">
+            <div class="grid grid-cols-4 gap-3 justify-items-center">
+              <div 
+                *ngFor="let tech of technologies; let i = index" 
+                class="flex items-center justify-center animate-bubble-float-mobile"
+                [style.animation-delay]="tech.delay + 's'"
+                [style.z-index]="technologies.length - i">
+                <div class="w-14 h-14 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                  <img 
+                    [src]="tech.iconUrl" 
+                    [alt]="tech.name"
+                    [title]="tech.name"
+                    class="w-8 h-8 object-contain">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SKILLS SECTION -->
+      <!-- ============================================ -->
+      <section id="skills">
+        <h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+          {{ "skills.title" | translate }}
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4 px-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <!-- Skill Card -->
+          <div
+            *ngFor="let skill of skillItems"
+            class="flex flex-col items-center gap-2 p-4 text-center rounded-lg bg-card-light dark:bg-card-dark shadow-sm transition-transform hover:scale-105"
+          >
+            <span class="material-symbols-outlined text-4xl text-primary">{{ skill.icon }}</span>
+            <p class="text-sm font-medium">{{ skill.name }}</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- PROJECTS SECTION -->
+      <!-- ============================================ -->
+      <section id="projects">
+        <h2 class="text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+          {{ "projects.title" | translate }}
+        </h2>
+
+        <div class="grid grid-cols-1 gap-8 px-4 md:grid-cols-2">
+          
+          <!-- Project Card 1: Project Alpha -->
+          <div class="flex flex-col gap-4 rounded-lg bg-card-light dark:bg-card-dark overflow-hidden group shadow-sm">
+            <div class="aspect-video w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                 data-alt="Dashboard analytics interface for a web application project."
+                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVg5RPcBCBaYDDEcFXC-n0gQ3a0BVflcH-It-RBNOvsP3Rh9iZKwQDSuGts3LloJYH8SPBuoQWBCndGxgMfGs2DdQfj0mH4KkTqlaMeRnLHO4gGK542V4R7Wzi_haLuR7xr1Dvqvef9R-iPUaQuvneuPKLo6aa6FZAL-YCh1RpX6lx1QkTjYDQT_v2PMerYvLOA5tw4yTkhjHq6c0TCexlqSiP-F-UVJ2n0hx9BZjnqZw93jOyThUkXKsv0PMmdAqkNvTL3VINAtxN');">
+            </div>
+            <div class="flex flex-col gap-2 p-4 pt-0">
+              <h3 class="text-lg font-bold">
+                {{ "projects.alpha.title" | translate }}
+              </h3>
+              <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                {{ "projects.alpha.description" | translate }}
+              </p>
+              <a class="inline-flex items-center mt-2 text-sm font-semibold text-primary group"
+                 href="#">
+                {{ "projects.alpha.viewCase" | translate }}
+                <span class="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-1">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Project Beta -->
+          <div class="flex flex-col gap-4 rounded-lg bg-card-light dark:bg-card-dark overflow-hidden group shadow-sm">
+            <div class="aspect-video w-full bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                 data-alt="Collaborative workspace with laptops and notes for a project management tool."
+                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALXi8ma-f5NTQ9qwNJCoUg0cSL4Tmg4P6MLHm5-z4uSOq07BPHLWrojwJtEYZI9qdxUORZthiSIdZQXwTuA1rWRSpiHrGzyR1fHH-qkd98OzsL7ZauzpCB_AHewv7td-IAxfkBwhjdgRMCVzSxSPFYUc7uswButXeOKS785YT70XOk3pjZWnMlW7qHcpACJLyMoaoP2kTGfExvnUb08zwb2vH8XGbaGda5B8Bcc7Br1hM_0XT39r8lXzmA4URoNtEwT0wov3ei3tUZ');">
+            </div>
+            <div class="flex flex-col gap-2 p-4 pt-0">
+              <h3 class="text-lg font-bold">
+                {{ "projects.beta.title" | translate }}
+              </h3>
+              <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                {{ "projects.beta.description" | translate }}
+              </p>
+              <a class="inline-flex items-center mt-2 text-sm font-semibold text-primary group"
+                 href="#">
+                {{ "projects.beta.viewCase" | translate }}
+                <span class="material-symbols-outlined ml-1 transition-transform group-hover:translate-x-1">
+                  arrow_forward
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CONTACT SECTION -->
+      <!-- ============================================ -->
+      <section id="contact">
+        <div class="flex flex-col items-center gap-4 p-8 mt-10 text-center rounded-lg bg-card-light dark:bg-card-dark shadow-sm">
+          <h2 class="text-2xl font-bold">
+            {{ "contact.title" | translate }}
+          </h2>
+          <p class="max-w-md text-text-secondary-light dark:text-text-secondary-dark">
+            {{ "contact.description" | translate }}
+          </p>
+          <a class="flex min-w-[84px] max-w-[480px] h-12 px-5 mt-4 cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105"
+             href="mailto:juan.perez@example.com">
+            <span class="truncate">{{ "contact.sendMessage" | translate }}</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="flex justify-center mt-16 border-t border-solid border-border-light dark:border-border-dark">
+    <div class="flex flex-col items-center justify-between w-full max-w-5xl gap-4 px-4 py-8 text-center md:flex-row md:px-10">
+      
+      <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+        {{ "footer.copyright" | translate }}
+      </p>
+
+      <!-- Social Links -->
+      <div class="flex gap-4">
+        <!-- LinkedIn -->
+        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary"
+           href="#"
+           data-alt="LinkedIn Profile">
+          <svg class="feather feather-linkedin"
+               fill="none"
+               height="24"
+               width="24"
+               stroke="currentColor"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               stroke-width="2"
+               viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect height="12" width="4" x="2" y="9"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <!-- GitHub -->
+        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary"
+           href="#"
+           data-alt="GitHub Profile">
+          <svg class="feather feather-github"
+               fill="none"
+               height="24"
+               width="24"
+               stroke="currentColor"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               stroke-width="2"
+               viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+
+        <!-- Dribbble -->
+        <a class="text-text-secondary-light dark:text-text-secondary-dark transition-colors hover:text-primary"
+           href="#"
+           data-alt="Dribbble Profile">
+          <svg class="feather feather-dribbble"
+               fill="none"
+               height="24"
+               width="24"
+               stroke="currentColor"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               stroke-width="2"
+               viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.73 4.36-8.5 9.73-15.08 13.04"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+</div>

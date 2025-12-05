@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Material Symbols Icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Aplicar fondo global para cubrir toda la página */
+@layer base {
+  html,
+  body {
+    @apply m-0 p-0 min-h-screen overflow-x-hidden;
+    background-color: #f6f6f8; /* background-light */
+    transition: background-color 0.3s ease;
+  }
+
+  html.dark,
+  html.dark body {
+    background-color: #101622; /* background-dark */
+  }
+
+  app-root {
+    @apply block min-h-screen m-0 p-0;
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Juan Pablo Gutierrez Diaz",
+    "subtitle": "Desarrollador Java orientado a los detalles con una sólida formación en programación orientada a objetos y metodologías de desarrollo de software. Historial comprobado en el desarrollo de aplicaciones escalables y mejora de la eficiencia del sistema. Comprometido con el aprendizaje continuo y la aplicación de mejores prácticas para producir código limpio y mantenible que impulse el éxito empresarial",
+    "viewProjects": "Ver Proyectos",
+    "contactMe": "Contáctame"
+  },
+  "experience": {
+    "title": "Experiencia Laboral",
+    "techStack": "Stack Tecnológico",
+    "items": [
+      {
+        "position": "Desarrollador Salesforce",
+        "company": "My Bambu | Jul 2025 - Presente",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Analista de Datos Junior",
+        "company": "My Bambu | Jun 2024 - Jul 2025",
+        "icon": "analytics"
+      },
+      {
+        "position": "Desarrollador",
+        "company": "Codesa | Mar 2022 - Jun 2024",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Consultor de Desarrollo",
+        "company": "Sofka Technologies | Nov 2021 - Ene 2022",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Aprendiz de Desarrollo",
+        "company": "Intergrupo | Dic 2020 - Jun 2021",
+        "icon": "integration_instructions"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades",
+    "items": [
+      {
+        "name": "Java",
+        "icon": "code"
+      },
+      {
+        "name": "Microservicios",
+        "icon": "account_tree"
+      },
+      {
+        "name": "RESTful API",
+        "icon": "api"
+      },
+      {
+        "name": "Spring Boot",
+        "icon": "settings"
+      },
+      {
+        "name": "Oracle",
+        "icon": "storage"
+      },
+      {
+        "name": "MySQL",
+        "icon": "database"
+      },
+      {
+        "name": "Salesforce",
+        "icon": "cloud"
+      },
+      {
+        "name": "Apex",
+        "icon": "terminal"
+      },
+      {
+        "name": "Lightning Web Components",
+        "icon": "bolt"
+      },
+      {
+        "name": "Sigma Computing",
+        "icon": "analytics"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "alpha": {
+      "title": "Project Alpha",
+      "description": "Diseño de interfaz y experiencia de usuario para una aplicación de análisis de datos. El objetivo fue simplificar la visualización de métricas complejas.",
+      "viewCase": "Ver caso de estudio"
+    },
+    "beta": {
+      "title": "Project Beta",
+      "description": "Desarrollo de una herramienta de gestión de proyectos colaborativa, enfocada en la comunicación en tiempo real y la asignación de tareas intuitiva.",
+      "viewCase": "Ver caso de estudio"
+    }
+  },
+  "contact": {
+    "title": "¿Interesado en colaborar?",
+    "description": "Estoy siempre abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tus visiones. No dudes en contactarme.",
+    "sendMessage": "Enviar un Mensaje"
+  },
+  "footer": {
+    "copyright": "© 2024 Juan Gutirerrez. Todos los derechos reservados."
+  },
+  "buttons": {
+    "downloadCV": "Descargar CV"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English"
+  }
+}

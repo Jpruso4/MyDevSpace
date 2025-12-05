@@ -1,0 +1,175 @@
+/* Theme Toggle Switch */
+.theme-switch {
+  display: inline-block;
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  background-color: #3b4354;
+  border-radius: 28px;
+  transition: background-color 0.4s ease;
+}
+
+.theme-switch-slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .theme-switch-slider,
+.theme-switch-slider.checked {
+  background-color: #135bec !important;
+}
+
+input:checked + .theme-switch-slider::before,
+.theme-switch-slider.checked::before {
+  transform: translateX(24px) !important;
+}
+
+/* ============================================ */
+/* TECH LOGOS BUBBLES STYLES - Tailwind + CSS */
+/* ============================================ */
+
+.bubble-circle {
+  @apply w-16 h-16 rounded-full flex items-center justify-center relative transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(59, 130, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bubble-circle::before {
+  content: '';
+  @apply absolute -inset-0.5 rounded-full -z-10 transition-opacity duration-300;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2));
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.bubble-circle:hover {
+  @apply z-[100];
+  transform: scale(1.15);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.bubble-circle:hover::before {
+  opacity: 1;
+}
+
+.dark .bubble-circle {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(59, 130, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .bubble-circle:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bubble-circle-mobile {
+  @apply w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(59, 130, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.bubble-circle-mobile:hover {
+  @apply scale-110;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .bubble-circle-mobile {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(59, 130, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .bubble-circle-mobile:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Animaciones */
+@keyframes bubble-float {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bubble-float-mobile {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bubble-float {
+  animation: bubble-float 0.8s ease-out backwards;
+}
+
+.animate-bubble-float-mobile {
+  animation: bubble-float-mobile 0.6s ease-out backwards;
+}
+
+/* Ajustar el scroll para compensar el header fijo */
+section[id] {
+  scroll-margin-top: 80px;
+}

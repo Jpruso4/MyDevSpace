@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Juan Pablo Gutierrez Diaz",
+    "subtitle": "Detail-oriented Java Developer with a strong background in object-oriented programming and software development methodologies. Proven track record in developing scalable applications and improving system efficiency. Committed to continuous learning and applying best practices to produce clean, maintainable code that drives business success",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "techStack": "Tech Stack",
+    "items": [
+      {
+        "position": "Salesforce Developer",
+        "company": "My Bambu | Jul 2025 - Present",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Junior Data Analyst",
+        "company": "My Bambu | Jun 2024 - Jul 2025",
+        "icon": "analytics"
+      },
+      {
+        "position": "Developer",
+        "company": "Codesa | Mar 2022 - Jun 2024",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Development Consultant",
+        "company": "Sofka Technologies | Nov 2021 - Jan 2022",
+        "icon": "integration_instructions"
+      },
+      {
+        "position": "Development Apprentice",
+        "company": "Intergrupo | Dec 2020 - Jun 2021",
+        "icon": "integration_instructions"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      {
+        "name": "Java",
+        "icon": "code"
+      },
+      {
+        "name": "Microservices",
+        "icon": "account_tree"
+      },
+      {
+        "name": "RESTful API",
+        "icon": "api"
+      },
+      {
+        "name": "Spring Boot",
+        "icon": "settings"
+      },
+      {
+        "name": "Oracle",
+        "icon": "storage"
+      },
+      {
+        "name": "MySQL",
+        "icon": "database"
+      },
+      {
+        "name": "Salesforce",
+        "icon": "cloud"
+      },
+      {
+        "name": "Apex",
+        "icon": "terminal"
+      },
+      {
+        "name": "Lightning Web Components",
+        "icon": "bolt"
+      },
+      {
+        "name": "Sigma Computing",
+        "icon": "analytics"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "alpha": {
+      "title": "Project Alpha",
+      "description": "Interface and user experience design for a data analysis application. The goal was to simplify the visualization of complex metrics.",
+      "viewCase": "View case study"
+    },
+    "beta": {
+      "title": "Project Beta",
+      "description": "Development of a collaborative project management tool, focused on real-time communication and intuitive task assignment.",
+      "viewCase": "View case study"
+    }
+  },
+  "contact": {
+    "title": "Interested in collaborating?",
+    "description": "I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to contact me.",
+    "sendMessage": "Send a Message"
+  },
+  "footer": {
+    "copyright": "© 2024 Juan Gutirerrez. All rights reserved."
+  },
+  "buttons": {
+    "downloadCV": "Download CV"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English"
+  }
+}
