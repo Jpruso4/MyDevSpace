@@ -46,10 +46,6 @@
     "title": "Habilidades",
     "items": [
       {
-        "name": "Java",
-        "icon": "code"
-      },
-      {
         "name": "Microservicios",
         "icon": "account_tree"
       },
@@ -58,45 +54,49 @@
         "icon": "api"
       },
       {
-        "name": "Spring Boot",
-        "icon": "settings"
-      },
-      {
-        "name": "Oracle",
-        "icon": "storage"
-      },
-      {
-        "name": "MySQL",
+        "name": "Gestión de Bases de Datos",
         "icon": "database"
       },
       {
-        "name": "Salesforce",
-        "icon": "cloud"
+        "name": "Desarrollo Backend",
+        "icon": "terminal"
       },
       {
-        "name": "Apex",
-        "icon": "terminal"
+        "name": "Desarrollo Frontend",
+        "icon": "code"
       },
       {
         "name": "Lightning Web Components",
         "icon": "bolt"
       },
       {
-        "name": "Sigma Computing",
+        "name": "Análisis de Datos",
         "icon": "analytics"
+      },
+      {
+        "name": "Clean Code",
+        "icon": "auto_fix_high"
+      },
+      {
+        "name": "Arquitectura Limpia",
+        "icon": "architecture"
+      },
+      {
+        "name": "DevOps",
+        "icon": "settings_applications"
       }
     ]
   },
   "projects": {
     "title": "Proyectos Destacados",
     "alpha": {
-      "title": "Project Alpha",
-      "description": "Diseño de interfaz y experiencia de usuario para una aplicación de análisis de datos. El objetivo fue simplificar la visualización de métricas complejas.",
+      "title": "FinTrack",
+      "description": "Aplicación de seguimiento financiero con una interfaz intuitiva para gestionar finanzas personales. Incluye seguimiento de gastos, gestión de presupuestos y análisis financiero.",
       "viewCase": "Ver caso de estudio"
     },
     "beta": {
-      "title": "Project Beta",
-      "description": "Desarrollo de una herramienta de gestión de proyectos colaborativa, enfocada en la comunicación en tiempo real y la asignación de tareas intuitiva.",
+      "title": "MyDevSpace",
+      "description": "Plataforma de espacio de trabajo y portafolio para desarrolladores diseñada para mostrar proyectos y habilidades. Construida con tecnologías web modernas para una experiencia óptima.",
       "viewCase": "Ver caso de estudio"
     }
   },

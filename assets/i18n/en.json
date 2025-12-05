@@ -46,10 +46,6 @@
     "title": "Skills",
     "items": [
       {
-        "name": "Java",
-        "icon": "code"
-      },
-      {
         "name": "Microservices",
         "icon": "account_tree"
       },
@@ -58,45 +54,49 @@
         "icon": "api"
       },
       {
-        "name": "Spring Boot",
-        "icon": "settings"
-      },
-      {
-        "name": "Oracle",
-        "icon": "storage"
-      },
-      {
-        "name": "MySQL",
+        "name": "Database Management",
         "icon": "database"
       },
       {
-        "name": "Salesforce",
-        "icon": "cloud"
+        "name": "Backend Development",
+        "icon": "terminal"
       },
       {
-        "name": "Apex",
-        "icon": "terminal"
+        "name": "Frontend Development",
+        "icon": "code"
       },
       {
         "name": "Lightning Web Components",
         "icon": "bolt"
       },
       {
-        "name": "Sigma Computing",
+        "name": "Data Analysis",
         "icon": "analytics"
+      },
+      {
+        "name": "Clean Code",
+        "icon": "auto_fix_high"
+      },
+      {
+        "name": "Clean Architecture",
+        "icon": "architecture"
+      },
+      {
+        "name": "DevOps",
+        "icon": "settings_applications"
       }
     ]
   },
   "projects": {
     "title": "Featured Projects",
     "alpha": {
-      "title": "Project Alpha",
-      "description": "Interface and user experience design for a data analysis application. The goal was to simplify the visualization of complex metrics.",
+      "title": "FinTrack",
+      "description": "Financial tracking application with an intuitive interface for managing personal finances. Features include expense tracking, budget management, and financial analytics.",
       "viewCase": "View case study"
     },
     "beta": {
-      "title": "Project Beta",
-      "description": "Development of a collaborative project management tool, focused on real-time communication and intuitive task assignment.",
+      "title": "MyDevSpace",
+      "description": "Developer workspace and portfolio platform designed to showcase projects and skills. Built with modern web technologies for an optimal user experience.",
       "viewCase": "View case study"
     }
   },
